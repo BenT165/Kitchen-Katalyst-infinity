@@ -1,0 +1,114 @@
+{% extends 'home/navbar.html'%}
+{% load static %}
+
+{% block loadInHead %}
+  <title>Recipe</title>
+  <!--path to CSS file-->
+  <link rel="stylesheet" href="{% static 'home/recipe.css' %}">
+
+  <style>    
+    body {
+
+      background-image: url("{% static 'home/assets/f_icons_bg.jpg' %}");
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+{% endblock%}
+
+
+{% block pages %}
+ 
+<div class="container">
+  <div class="meal-wrapper">
+     <!-- whole meal search area -->
+    <div class="meal-search">
+      <h2 class="title">
+        Find Meals for your ingredients
+      </h2>
+      <!-- meal quote -->
+      <blockquote>
+        inspiration blah blah <br>
+        <cite> - Author</cite>
+      </blockquote>
+
+      <!-- search box -->
+      <div class="meal-search-box">
+        <input type="text" class="search-control" placeholder="Enter an ingredient or recipe name" id ="search-input">
+        <button type="sumbit" class="search-btn btn" id="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+    </div>
+    <!-- meal results -->
+    <div class="meal-result">
+      <h2 class="title">Your search Results: </h2>
+
+      <!-- meal entries -->
+      <div id="meal">
+
+        <!-- meal item -->
+        <!-- <div class="meal-item">
+          <div class="meal-img">
+            <img  src="..." alt = "food">
+          </div>
+          <div class="meal-name">
+            <h3>Food Name</h3>
+            <a href="#" class="recipe-btn"> Get Recipe </a>
+          </div>
+        </div> -->
+        <!-- end of meal item  -->
+
+      </div>
+
+    </div>
+
+
+    <!--FORM FOR RECIPE INPUT-->
+    <form action="" method="POST">
+      {% csrf_token %}
+      <!-- recipe details  -->
+      <div class="meal-details">
+
+        <!--SAVE button-->
+        <button type="button" class="btn recipe-save-btn" id="recipe-save-btn" onclick="saveRecipe(this)">
+          <i class="material-icons">save</i> Save
+        </button>
+        <!-- recipe close btn -->
+        <button type="button" class="btn recipe-close-btn" type="submit" id="recipe-close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <!-- meal content -->
+        <div class="meal-details-content">
+          <!--
+          <h2 class="recipe-title">Meals name here</h2>
+          <p class="recipe-category">Category Name</p>
+          <--  recipe instructions -
+          <div class="recipe-instruct">
+            <h3>Instructions:</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+              Maxime quam dicta sint sed culpa illum laborum commodi 
+              blanditiis consectetur a alias soluta officia esse nulla, 
+              error cum eos dolor. Soluta. </p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              Et soluta ipsum tempore, nam dolores voluptatum nobis similique. 
+              Eaque hic earum ad assumenda dicta, quasi harum est rem, suscipit 
+              deserunt laborum! </p>
+          </div>
+          <div class="recipe-meal-img">
+            <img src="..." alt="">
+          </div>
+          <div class="recipe-link">
+            <a href="#" target="_blank">Watch video</a>
+          </div>-->
+        </div> 
+        
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="{% static 'home/recipe.js' %}"> </script> 
+{% endblock %}

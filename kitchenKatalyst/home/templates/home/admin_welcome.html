@@ -1,0 +1,64 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+<!-- {% block extrastyle %}
+{{block.user}} -->
+    {% block loadInHead %}
+        <!--where where bring in content from template we are extending-->
+        <!--add unique stuff here-->
+        <link rel="stylesheet" href="{% static 'home/style.css' %}">
+        <title>Welcome Admin</title>
+
+        <style>    
+          body {
+      
+            background-image: url("{% static 'home/assets/better_bat_signal.jpeg' %}");
+            background-size: cover;
+            background-repeat: repeat-x;
+          }
+          
+          .custom-navbar {
+            border-radius: 20px; /* Set border radius for navbar container */
+            overflow: hidden; /* Hide overflow to ensure rounded corners are visible */
+        }
+
+        /* Custom CSS for navbar items */
+        .custom-navbar .nav-link {
+            color: white; /* Set text color to white */
+            border: 1px solid white; /* Set border color to white */
+            border-radius: 20px; /* Set border radius for navbar items */
+            background-color: transparent; /* Set background color for navbar items */
+            padding: 8px 16px; /* Add padding to navbar items for better spacing */
+            transition: background-color 0.3s; /* Add transition for smoother hover effect */
+        }
+
+        /* Hover effect for navbar items */
+        .custom-navbar .nav-link:hover {
+            background-color: transparent; /* Change background color on hover */
+        }
+        </style>
+    {% endblock %}
+<!-- {% endblock %}
+
+{% block branding %} 
+
+ {% endblock %} -->
+
+{% block content %}
+<!--Navbar for admin--><nav class="custom-navbar">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'admin_welcome' %}">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'admin:index' %}">Databases</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+  </ul>
+</nav>
+{% endblock%}
+
+<!-- {% block nav-global %}
+{% endblock %}  -->

@@ -1,0 +1,68 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+
+{% block loadInHead %}
+    <!--where where bring in content from template we are extending-->
+    <!--add unique stuff here-->
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <title>Login</title>
+
+
+{% endblock %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center">
+       
+        <!--logo-->
+        <img class="mb-1 mt-2" alt="logo" id="logo" src="{% static 'home/assets/K_K_logo.png' %}" height= 200px; width=200px></img>
+        
+        <div class="card" style="width: 28rem;" id="main_card">
+            
+            <div class="col"> 
+            
+                <form method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <div class="text-center"> 
+                        <h1 id="main_header">Log Into Kitchen Katalyst</h1>
+
+                        <!--For displaying error messages-->
+                        {% if messages %}
+                            {% for message in messages %}                                    
+                                <div class="alert alert-danger justify-content-center" role="alert" id="errorMessage">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                            
+                        <label for="inputUsername"></label> 
+                        <input type="text" class="form-control" name="username" id="inputUsername" aria-describedby="usernameHelp"
+                            placeholder="Username">
+                    
+
+                        <label for="inputPassword"></label>                    
+                        <input type="password" class="form-control mb-3" name="password" id="inputPassword" placeholder="Password">
+                   
+                    </div>
+
+                    <div class="mb-2 text-center"> 
+                        <button type="submit" class="btn btn-dark" id="login">Log in</button>
+                    </div>
+                    <div class="text-center"> 
+                        <button type="submit" class="btn btn-light" id="forgotPassword">Forgot password?</button> 
+                    </div>
+                    <div class="mb-3 mt-1 text-center" id="alt">or</div>
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn" name="create_account" id="newAccount">Create New Account</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}   
+
+ 
+    
+
+

@@ -1,0 +1,269 @@
+{% extends 'home/navbar.html'%}
+{% load static %}
+
+{% block loadInHead %}
+  <title>Recipe</title>
+  <!--path to CSS file-->
+  <link rel="stylesheet" href="{% static 'home/recipe.css' %}">
+{% endblock%}
+
+
+{% block pages %}
+  <div class="masthead food-tile mt-0 text-center container-fluid">
+    <div class="pt-0 pt-md-4  row">
+      <div class="mx-auto col-md-10 col-12">
+        <h1 class="jumbo-title mb-4">Here's for you to search a recipe</h1>
+        <p class="jumbo-subtitle">Simply type a recipe idea  and it will instantly search for recipe ingredients...</p>
+        <form class="w-100 mt-4 mx-auto p-0 jumbo-form" id="recipeForm">
+          <div class="w-100 mx-auto px-0 row justify-content-center">
+            <div class="input-group mb-3">
+              <!--Enter recipe name-->
+              <input type="text" class="form-control" id="searchRecipe" placeholder="Search for Recipe">
+              <div class="input-group-append">
+                <!--Submit recipe typed in Input-->
+                <button type="submit" class="search-btn" id="searchButton"><i class="material-icons">search</i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="w-100">
+          <span class="suggestion-rotator">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path style="color: yellow;" d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z">
+              </path>
+            </svg>   
+            <!-- -->Search what you crave
+          </span>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Search content -->
+<div class="shoutouts container-fluid">
+  <div class="container">
+      <!-- Recipe result title -->
+      <h2 id="recipe-title" name="recipe-title" class="recipe-title"></h2>
+
+      <!-- Display image from recipe searched -->
+      <img src="..." class="rounded mx-auto d-block" alt="..." id="recipe-image" name="recipe-image">
+
+      <!-- Display recipe ingredients and specs inside this table -->
+      <div class="container justify-content-center">
+          <table class="recipe-table" id="recipeResults"></table>
+      </div>
+  </div>
+</div>
+
+
+<div class="card-container justify-content-center align-items-center row">
+  <!-- Card 1 -->
+  <div class="card d-flex align-items-center py-0 py-md-0  col-md-3 col-2" id="card">
+   Card1
+    <!-- Card Image 1 -->
+    <img src="..." width="160" alt="Logo 1" class="shoutouts-logo" id="recipe-sug1" name="suggestion_1"/>
+
+    <!-- Card content 1 -->
+    <div class="card-content">
+
+      <!-- Accordion content 1 -->
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" id="title_1">
+            Accordion Item #1
+            </button>
+          </h2>
+
+          <!-- Accordion content 1 -->
+           <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+             <div class="accordion-body" id="a_body-1">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Save btn 1 -->
+      <div class="col-sm-12 text-center">
+        <button class="save-btn" type="submit" id="save_1" name="save_1">Save</button>
+      </div>
+
+    </div>  
+  </div>
+  <!-- Card 2 -->
+  <div class="card d-flex justify-content-center align-items-center py-2 py-md-0  col-md-3 col-6" id="card">
+  Card2
+    <!-- Card Image 2 -->
+    <img src="..." width="160" alt="Logo 2" class="shoutouts-logo" id="recipe-sug2" name="suggestion_2"/>
+    
+    <!-- Card content 2-->
+    <div class="card-content">
+
+      <!-- Accordion content 2 -->
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" id="title_2">
+            Accordion Item #2
+            </button>
+          </h2>
+
+          <!-- Accordion content 2 -->
+           <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+             <div class="accordion-body" id="a_body-2">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save button 2 -->
+      <div class="col-sm-12 text-center">
+          <button class="save-btn" type="submit" id="save_2" name="save_2">Save</button>
+      </div>
+
+    </div>  
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card d-flex justify-content-center align-items-center py-2 py-md-0  col-md-3 col-6" id="card">
+  Card 3
+    <!-- Card image 3 -->
+    <img src="..." width="160" alt="Logo 3" class="shoutouts-logo" id="recipe-sug3" name="suggestion_3"/>
+
+    <!-- Card content 3 -->
+    <div class="card-content">
+
+      <!-- Accordion content 3 -->
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" id="title_3">
+            Accordion Item #3
+            </button>
+          </h2>
+
+          <!-- Accordion content 3 -->
+           <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+             <div class="accordion-body" id="a_body-3">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save button 3 -->
+      <div class="col-sm-12 text-center">
+          <button class="save-btn" type="submit" id="save_3" name="save_3">Save</button>
+      </div>
+
+    </div>  
+  </div>
+</div>
+
+
+<!--TODO django for loop to get groceries list from view (see for loop in main.py for inspiration)-->
+<!--TODO format items into list -->
+<!-- TODO send list of formatted items as input to API call-->
+<!-- TODO store API response in variable, console.log() to see what format is like -->
+<!-- TODO make separate list of recipes that you get back from spoonacular and track current index in that list-->
+
+
+<!-- Include your JS files if needed -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+
+      $('#recipeForm').submit(function(event) {
+
+          event.preventDefault();
+          var recipeName = $('#searchRecipe').val();
+
+          // Make AJAX request to Spoonacular API
+          $.ajax({
+              url: 'https://api.spoonacular.com/recipes/complexSearch',
+              method: 'GET',
+              data: {
+                  apiKey: '7be9e82bf8bb4e22a8c935adc6c3f1cf', // Replaced with your actual API key
+                  query: recipeName,
+                  addRecipeInformation: false // Do not request recipe information here
+              },
+              success: function(response) {
+                  // Handle successful response
+                  console.log(response);
+
+                  // Update UI with recipe information
+                  displayRecipes(response.results); // Pass the array of recipe objects to a function for display
+              },
+              error: function(xhr, status, error) {
+                  // Handle error
+                  console.error(error);
+              }
+          });
+      });
+  });
+
+  function displayRecipes(recipes) {
+      var recipeResults = $('#recipeResults');
+
+      // Clear previous results
+      recipeResults.empty();
+
+      // Loop through each recipe
+      recipes.forEach(function(recipe) {
+          // Display the recipe title
+          $('#recipe-title').text(recipe.title);
+
+          // Display the image
+          if (recipe.image) {
+              $('#recipe-image').attr('src', recipe.image).addClass('recipe-image');
+          }
+
+          // Call function to get recipe information for each recipe
+          getRecipeInformation(recipe.id);
+      });
+  }
+
+  // Function to get recipe information by ID
+  function getRecipeInformation(recipeId) {
+
+      // Make AJAX request to Spoonacular API for recipe information
+      $.ajax({
+          url: `https://api.spoonacular.com/recipes/${recipeId}/information`,
+          method: 'GET',
+          data: {
+              apiKey: '7be9e82bf8bb4e22a8c935adc6c3f1cf', // Replaced with your actual API key
+              includeNutrition: true // Include nutrition data in the recipe information
+          },
+          success: function(response) {
+
+              // Handle successful response
+              console.log(response);
+
+              // Update UI with recipe information
+              displayRecipe(response);
+          },
+          error: function(xhr, status, error) {
+
+              // Handle error
+              console.error(error);
+          }
+      });
+  }
+
+  function displayRecipe(recipe) {
+      var recipeResults = $('#recipeResults');
+
+      // Display the recipe ingredients
+      if (recipe.extendedIngredients && recipe.extendedIngredients.length > 0) {
+          // Add each ingredient as a row in the existing table
+          recipe.extendedIngredients.forEach(function(ingredient) {
+              var ingredientRow = $('<tr>').append(
+                  $('<td>').text(ingredient.original)
+              );
+              recipeResults.append(ingredientRow);
+          });
+      } else {
+          console.log("No ingredients found for the recipe:", recipe.title);
+      }
+  }
+</script>
+
+
+{% endblock %}

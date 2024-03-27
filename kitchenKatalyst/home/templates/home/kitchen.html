@@ -1,0 +1,106 @@
+{% extends 'home/navbar.html'%}
+{% load static %}
+
+{% block loadInHead %}
+  <link rel="stylesheet" href="{% static 'home/recipe.css' %}">
+  <title>Kitchen</title>
+
+  <!--path to CSS file-->
+  <link rel="stylesheet" href="{% static 'home/kitchen.css' %}">
+
+  <style>    
+    body {
+
+      background-image: url("{% static 'home/assets/s_icons_bg.jpg' %}");
+    }
+  </style>
+{% endblock%}
+
+{% block pages %}
+
+    {% if recipe_list %}
+      {% for recipe in recipe_list %}
+        <div>recipe.name</div>
+      {% endfor %}
+    {% endif %}
+
+  <div class="container">
+    <div class="kitchen-wrapper">
+      <!-- whole meal search area -->
+      <div class="kitchen-search">
+        <h2 class="title">
+          Find your favorite recipes
+        </h2>
+      </div>
+
+      <!-- meal results -->
+      <div class="kitchen-result">
+        <h2 class="title"> These are ready for you</h2>
+
+        <!-- meal entries -->
+        <div id="kitchen">
+
+          <!-- kitchen item -->
+          <div class="kitchen-item">
+             <!-- search box -->
+            <div class="kitchen-search-box">
+              <input type="text" class="search-control" placeholder="Look for your recipe" id ="search-input">
+              <button type="sumbit" class="search-btn btn" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+
+              <div class="kitchen-recipe-names">
+
+               
+                <table>
+                  <thead>
+                      <tr>
+                          <th>Recipe List</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>
+                            Recipe 1
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Recipe 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          Recipe 3
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+          <!-- end of kitchen item  -->
+
+          <!-- recipe display -->
+          <div class="kitchen-display">
+            <div class="kitchen-img">
+              <img  src="..." alt = "food">
+            </div>
+            <div class="kitchen-name">
+              <h3>Food Name</h3>
+              <p></p>
+            </div>
+          </div>
+          <!-- end of recipe display  -->
+
+      
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

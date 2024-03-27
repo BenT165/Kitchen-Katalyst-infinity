@@ -1,0 +1,86 @@
+#main {
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(241, 240, 240);
+}
+
+
+#main_card {
+    align-items: center;
+
+}
+
+#main_header {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Madimi One';
+    font-size: 18px;
+}
+
+
+/*TODO logo stuff*/
+#logo {
+    padding-top: 20px;    
+}
+
+
+#forgotPassword {
+
+    color: rgb(157, 152, 152);
+    background-color: transparent;
+    border: none;
+  
+}
+
+#forgotPassword:hover {
+    opacity: 90%;
+    transition-delay: 1s;
+    text-decoration: underline;
+}
+
+#newAccount {
+    background-color: rgb(59, 161, 20);
+    color: white;
+}
+
+#newAccount:hover {
+
+    background-color: rgb(28, 143, 75);
+}
+
+
+.container {
+    height: 85vh; 
+    width: 100vw;
+    flex-direction: column;
+}
+
+#alt {
+    font-size: 12px;
+}
+
+
+#login {
+    width: 11rem;
+}
+
+#inputUsername {
+    width: 24rem;
+}
+
+#inputPassword {
+    width: 24rem;
+}
+
+
+#errorMessage {
+    align-items: center;
+    text-align: center;
+    height: 3rem;
+    width: 12.5rem;
+    font-size: 12px;
+    margin-left: 24%;
+}

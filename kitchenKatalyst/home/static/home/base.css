@@ -1,0 +1,68 @@
+#base.css
+
+/*Body Page Background*/
+body {
+    font-size: 25px; /* Adjust the font size as needed */
+    display: block;
+    /* color: rgb(59, 161, 20); */
+    font-family: 'Madimi One';
+    
+    /*background-image: url('{% static 'b_icons_bg.jpg' %}');*/
+}
+
+/*Navigation Bar Settings*/
+
+.navbar-nav .nav-link {
+    font-size: 25px; /* Adjust the font size as needed */
+    display: block;
+    color: rgb(59, 161, 20);
+    font-family: 'Madimi One';
+
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 0.3s ;
+}
+
+li a:hover {
+    /* background-color: limegreen; */
+    transform: translateY(-10px);
+    background-color: var(-);
+    color: var(--clr-light);
+}
+
+
+/*Card Settings*/
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  /* Adjust spacing as needed */
+    margin: 10px;  /* Adjust margins as needed */
+    padding-top: 100px;
+  }
+  
+  .card {
+    font-family: 'Madimi One';
+    width: 350px;  /* Adjust initial card width */
+    margin: 10px;  /* Adjust margins as needed */
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card img {
+    width: 50%;
+    height: 100px;  /* Adjust image height as needed */
+    object-fit: cover;  /* Scales image to fit within container */
+  }
+  
+ 
+  .card-content {
+    padding: 10px;
+  }
+
+  #gDisplay {
+    width: 100%;
+}
+  

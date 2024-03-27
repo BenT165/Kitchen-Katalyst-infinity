@@ -1,0 +1,175 @@
+{% extends 'home/navbar.html'%}
+{% load static %}
+
+{% block loadInHead %}
+  <!--path to CSS file-->
+  <link rel="stylesheet" href="{% static 'home/main.css' %}">
+  <title>Home</title>
+
+  <style>    
+    body {
+
+      background-image: url("{% static 'home/assets/b_icons_bg.jpg' %}");
+    }
+  </style>
+{% endblock%}
+
+    {% block pages %}
+    <!--All cards-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card-container">
+            <div class="card" name="dataEntry">
+              <!-- <img src="{% static 'home/assets/K_Input_Notes.png' %}" alt="Image 1"> -->
+              <div class="card-content">
+                <h5 class="card-title" id="gItem">Grocery Item</h5>
+                <!--User Form Input-->
+                {% if submitted %}
+                    Your grocery was introduced to database!
+                {% else %}
+                <form id="grocery-form" action="" method="POST">
+                  {% csrf_token %}
+  
+                    
+                    <div class="form-group">
+                      <div class="row"> 
+                          <div class="col-sm-6">
+                              <label for='quantity'>Quantity</label>
+                              {{ form.quantity }}
+                          </div>
+                          <div class="col-sm-4">
+                              <label for="unit">Unit</label>
+                              {{ form.unit }}
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <label for='name'>Name</label>
+                              {{ form.name }}
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <label for='expiration_date'>Expiration Date</label>
+                              {{ form.expiration_date }}
+                          </div>
+                      </div>
+                  </div>
+                  
+                  </div>
+                    <div class="form-group row">
+                      <div class="col-sm-12 text-center">
+                        <button class="btn btn-primary" type="submit" id="add" name="add">Add</button>
+                      </div>
+                    </div>
+                </form>
+                {% endif %}
+              </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-8">
+          <div class="card-container">
+          <div class="card" name="dataDisplay" id="gDisplay">
+            <!-- <img src="{% static 'home/assets/image.jpeg' %}" alt="Image 2"> -->
+            <div class="card-content-fluid">
+              <h5 class="card-title" id="gList">Grocery Item List</h5>
+              <!-- <ul id="item-list"></ul> -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Expiration Date</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody id = "item-list">
+                {% if grocery_list %}
+                  {% for grocery in grocery_list %}
+                    <!--each row is a form-->
+                   
+                    <!--redirect user to delete view after they submit form (click delete button), passing grocery they want to delete-->
+                    <form method="POST"  action="{% url 'delete' grocery_number=grocery.groceryID %}">
+                      {% csrf_token%}
+                      <tr>
+                        <td>{{ grocery.quantity }}</td>
+                    
+                        {% if grocery.unit != '' %}
+                            <!-- Check if quantity is not equal to 1 -->
+                            {% if grocery.quantity != 1 %}
+                                <td>{{ grocery.unit }}s</td>
+                            {% else %}
+                                <td>{{ grocery.unit }}</td>
+                            {% endif %}
+                        {% else %}
+                            <td>None</td>
+                        {% endif %}
+                    
+                        <td>{{ grocery.name }}</td>       
+                        
+                        <!--if grocery.is_expired display date in red-->
+                        {% if grocery.is_expired %}
+                          <td style="color: red;">{{ grocery.expiration_date }}</td>
+                        {% else %}
+                          <td>{{ grocery.expiration_date }}</td>
+                        {% endif %}                        
+
+                        <!-- Delete button -->
+                        <td>
+                            <button type="submit" class="remove-btn" name="delete" id="delete"><i class="material-icons">delete</i></button>
+                        </td>
+                      </tr>
+                    </form>
+                  {% endfor %}
+                {% else %}
+                  <tr>
+                    <td colspan="8">No groceries available</td>
+                  </tr>
+                {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    
+        <!-- <div class="card" name="recipeSelection">
+          <img src="{% static 'home/assets/image.jpeg' %}" alt="Image 3">
+          <div class="card-content">
+            <h5 class="card-title" id="gRecipe">Recipe</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul id="item-list"></ul>
+          </div>
+        </div>
+      </div> -->
+    {% endblock %}

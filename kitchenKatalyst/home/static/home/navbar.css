@@ -1,0 +1,15 @@
+.navbar-nav .nav-link {
+    font-size: 25px; /* Adjust the font size as needed */
+    display: block;
+    color: rgb(59, 161, 20);
+    font-family: 'Madimi One';
+
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: limegreen;
+    color: white;
+}

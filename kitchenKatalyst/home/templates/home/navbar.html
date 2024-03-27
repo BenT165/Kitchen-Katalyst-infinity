@@ -1,0 +1,79 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block loadInHead %}
+  <!--where where bring in content from template we are extending-->
+  <!--add unique stuff here-->
+   <!--path to CSS file for navbar-->
+   <link rel="stylesheet" href="{% static 'home/navbar.css' %}">
+
+   <style>    
+    body {
+
+      background-image: url("{% static 'home/assets/b_icons_bg.jpg' %}");
+    }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+ <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main' %}">
+          <img src="{% static 'home/assets/K_K_logo.png' %}" alt="kk_logo" class="d-inline-block align-top" width=60px; height=50px;>  
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menu Navigation Bar -->
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'main' %}">
+                <!-- <i class="material-icons">home</i> -->
+                  Home
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'recipe' %}">
+                <!-- <i class="material-icons">menu</i> -->
+                Recipes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'kitchen' %}">
+                <!-- <i class="material-icons">kitchen</i> -->
+                I'm hungry!
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white invisible" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <!-- Menu Dropdown -->
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="{% static 'main' %}">Home</a></li>
+                <li><a class="dropdown-item" href="{% static 'recipe' %}">Recipe</a></li>
+                <li><a class="dropdown-item" href="{% static 'kitchen' %}">Kitchen</a></li>
+                <li><a class="dropdown-item" href="{% static 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    {% block pages %}
+    {% endblock %}
+
+ 
+  
+{% endblock %}

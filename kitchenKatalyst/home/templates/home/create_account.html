@@ -1,0 +1,96 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+
+{% block loadInHead %}
+    <!--where where bring in content from template we are extending-->
+    <!--add unique stuff here-->
+    <link rel="stylesheet" href="{% static 'home/create_account.css' %}">
+    <title>Create Account</title>
+
+
+{% endblock %}
+ {% block content %}    
+        <div class="container d-flex justify-content-center align-items-center">
+        
+            
+
+            {% if  form.ValidationError %}
+                <div class="alert alert-danger mt-1 position-absolute top-0 start-50 translate-middle-x" style="height: 2.5rem; font-size: 10px;" role="alert">
+                    Nice try, CJ
+                </div>
+
+            {% elif form.errors %}
+                <div class="alert alert-danger mt-1 position-absolute top-0 start-50 translate-middle-x" style="height: 2.5rem; font-size: 10px;" role="alert">
+                    There was an error with your form...
+                </div>
+    
+            {% elif not form.errors and issue == 'passwords_dont_match'%}
+                <div class="alert alert-danger mt-1 position-absolute top-0 start-50 translate-middle-x" style="height: 2.5rem; font-size: 10px;" role="alert">
+                    Passwords must match...
+                </div>
+            {% endif %}
+                
+
+            <div class="card" style="width: 30rem; height: 32rem;" id="main_card">
+
+
+
+                <div class="col">
+
+                   
+                    
+                    <div class="text-center mt-2">
+                        <h1>Create Account</h1>
+                    </div>
+                    
+
+                    <form method="POST">
+                        
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="first_name"></label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                            </div>
+                            <div class="col">
+                                <label for="last_name"></label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group text-center">
+
+                            <label for="email"></label>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+
+                            <label for="username"></label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            
+                            <label for="password"></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        
+                            <!--TODO compare password1 to password to make sure user entered the right thing-->
+                            <label for="password1"></label>
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="Confirm password">
+                            
+
+                            <label for="date_reminder"></label>
+                            <input type="number" class="form-control mb-3" id="date_reminder" min="2" name="date_reminder" placeholder="Remind me this many days before my items expire">
+                        </div>
+
+                        <!--TODO add small grey text telling users they will automatically be reminded one day before and the day of groceries expiring-->
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
+                        </div>
+
+                        
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+{% endblock %}
