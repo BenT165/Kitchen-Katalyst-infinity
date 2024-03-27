@@ -1,14 +1,1 @@
 
-#ignore pycache
-./kitchenKatalyst/kitchenKatalyst/__pycache__
-./kitchenKatalyst/home/__pycache__
-./kitchenKatalyst/home/management/__pycache__
-./kitchenKatalyst/home/management/commands/__pycache__
-
-
-/kitchenKatalyst/stuff.txt
-
-
-#Ignore SQLite files
-*.sqlite
-*.sqlite3
