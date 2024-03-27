@@ -64,7 +64,7 @@
               <tbody>
                   {% for recipe in recipe_list %}
                   <tr>
-                      <td><a href="Chicken"></a>{{ recipe.name }}</td>
+                      <td><a href="#{{ recipe.name }}">{{ recipe.name }}</a></td>
                   </tr>
                   {% endfor %}
               </tbody>
@@ -78,9 +78,10 @@
         </div>
 
         <!-- recipe content display -->
-        <div class="kitchen-details-content">
+        {% for recipe in recipe_list %}
+        <div class="kitchen-details-content" id="{{ recipe.name }}"">
 
-          <h2 class="recipe-title">Meals name here</h2>
+          <h2 class="recipe-title">{{recipe.name}}</h2>
           <!-- <p class="recipe-category">Category Name</p> -->
 
           <!-- image recipe  -->
@@ -91,10 +92,7 @@
           <!--  recipe instructions -->
           <div class="recipe-instruct">
             <h3>Instructions:</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-              Maxime quam dicta sint sed culpa illum laborum commodi 
-              blanditiis consectetur a alias soluta officia esse nulla, 
-              error cum eos dolor. Soluta. </p>
+            <p> {{recipe.instructions}} </p>
           </div>
 
           <!-- recipe link -->
@@ -103,6 +101,7 @@
           </div> -->
   
         </div> 
+        {% endfor %}
         <!-- end of recipe display  -->
 
       </div>
