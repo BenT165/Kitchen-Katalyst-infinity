@@ -17,13 +17,6 @@
 {% endblock%}
 
 {% block pages %}
-
-    {% if recipe_list %}
-      {% for recipe in recipe_list %}
-        <div>recipe.name</div>
-      {% endfor %}
-    {% endif %}
-
   <div class="container">
     <div class="kitchen-wrapper">
       <!-- whole meal search area -->
@@ -35,70 +28,75 @@
 
       <!-- meal results -->
       <div class="kitchen-result">
-        <h2 class="title"> These are ready for you</h2>
+        <h3 class="title"> These are ready for you</h3>
 
-        <!-- meal entries -->
+        <!-- kitchen item -->
         <div id="kitchen">
 
-          <!-- kitchen item -->
-          <div class="kitchen-item">
-             <!-- search box -->
-            <div class="kitchen-search-box">
-              <input type="text" class="search-control" placeholder="Look for your recipe" id ="search-input">
+          <!-- Recipe items -->
+          <div class="recipe-item">
+            
+            <!-- search box -->
+            <div class="kitchen-recipe-search-box">
+
+              <input type="text" class="search-control" placeholder="Your saved recipes" id ="search-input">
+              <!-- search -->
               <button type="sumbit" class="search-btn btn" id="search-btn">
                 <i class="fas fa-search"></i>
               </button>
-
-              <div class="kitchen-recipe-names">
-
-               
-                <table>
-                  <thead>
-                      <tr>
-                          <th>Recipe List</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>
-                            Recipe 1
-                          </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Recipe 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                          Recipe 3
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-              </div>
-              
-            </div>
           </div>
-          <!-- end of kitchen item  -->
-
-          <!-- recipe display -->
-          <div class="kitchen-display">
-            <div class="kitchen-img">
-              <img  src="..." alt = "food">
-            </div>
-            <div class="kitchen-name">
-              <h3>Food Name</h3>
-              <p></p>
-            </div>
+          
+          <!-- recipe item content -->
+          <div class="recipe-lists">
+            <!-- <h3>Recipe Lists</h3> -->
+            <table>
+              <thead>
+                  <tr>
+                      <th>Recipe Lists</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><a href="Chicken"></a>chicken</td>
+                  </tr>
+              </tbody>
+            </table>
           </div>
-          <!-- end of recipe display  -->
-
-      
-
+        </div>
+          <!-- end of recipe item  -->
+  
         </div>
 
+        <!-- recipe content display -->
+        <div class="kitchen-details-content">
+
+          <h2 class="recipe-title">Meals name here</h2>
+          <!-- <p class="recipe-category">Category Name</p> -->
+
+          <!-- image recipe  -->
+          <!-- <div class="recipe-meal-img">
+            <img src="..." alt="">
+          </div> -->
+  
+          <!--  recipe instructions -->
+          <div class="recipe-instruct">
+            <h3>Instructions:</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+              Maxime quam dicta sint sed culpa illum laborum commodi 
+              blanditiis consectetur a alias soluta officia esse nulla, 
+              error cum eos dolor. Soluta. </p>
+          </div>
+
+          <!-- recipe link -->
+          <!-- <div class="recipe-link">
+            <a href="#" target="_blank">Watch video</a>
+          </div> -->
+  
+        </div> 
+        <!-- end of recipe display  -->
+
       </div>
+        
     </div>
 
   </div>
