@@ -18,6 +18,9 @@
 
 {% block pages %}
   <div class="container">
+
+
+
     <div class="kitchen-wrapper">
       <!-- whole meal search area -->
       <div class="kitchen-search">
@@ -49,6 +52,9 @@
           <!-- recipe item content -->
           <div class="recipe-lists">
             <!-- <h3>Recipe Lists</h3> -->
+          
+             
+
             <table>
               <thead>
                   <tr>
@@ -56,11 +62,15 @@
                   </tr>
               </thead>
               <tbody>
+                  {% for recipe in recipe_list %}
                   <tr>
-                      <td><a href="Chicken"></a>chicken</td>
+                      <td><a href="Chicken"></a>{{ recipe.name }}</td>
                   </tr>
+                  {% endfor %}
               </tbody>
             </table>
+            
+          
           </div>
         </div>
           <!-- end of recipe item  -->
