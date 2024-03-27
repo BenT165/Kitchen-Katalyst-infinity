@@ -187,10 +187,10 @@ def kitchen(request):
         return redirect("admin_welcome")
 
     #query in DB
-    recipe_list = Grocery.objects.filter(user=request.user)
+    recipe_list = Recipe.objects.filter(user=request.user)
 
     #display all groceries for given user (TODO render them by passing groceries as additional argument)
-    return render(request, "home/kitchen.html", {'grocery_list': recipe_list}) 
+    return render(request, "home/kitchen.html", {'recipe_list': recipe_list}) 
 
 
 def recipe(request):
