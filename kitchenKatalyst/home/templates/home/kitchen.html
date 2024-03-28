@@ -47,41 +47,38 @@
               <button type="sumbit" class="search-btn btn" id="search-btn">
                 <i class="fas fa-search"></i>
               </button>
-          </div>
+            </div>
           
-          <!-- recipe item content -->
-          <div class="recipe-lists">
-            <!-- <h3>Recipe Lists</h3> -->
-          
-             
+            <!-- recipe item content -->
+            <div class="recipe-lists">
 
-            <table>
-              <thead>
-                  <tr>
-                      <th>Recipe Lists</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {% for recipe in recipe_list %}
-                  <tr>
-                      <td><a href="#{{ recipe.name }}">{{ recipe.name }}</a></td>
-                  </tr>
-                  {% endfor %}
-              </tbody>
-            </table>
-            
-          
+              <!-- <h3>Recipe Lists</h3> -->
+              <table>
+                <thead>
+                    <tr>
+                        <th>Recipe Lists</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in recipe_list %}
+                    <tr>
+                        <td><a href="#{{ recipe.name }}" onclick="showRecipe('{{ recipe.name }}');">{{ recipe.name }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+              
+            </div>
           </div>
-        </div>
           <!-- end of recipe item  -->
   
         </div>
 
         <!-- recipe content display -->
         {% for recipe in recipe_list %}
-        <div class="kitchen-details-content" id="{{ recipe.name }}"">
+        <div class="kitchen-details-content" id="{{ recipe.name }}">
 
-          <h2 class="recipe-title">{{recipe.name}}</h2>
+          <h2 class="recipe-title"> {{recipe.name}} </h2>
           <!-- <p class="recipe-category">Category Name</p> -->
 
           <!-- image recipe  -->
@@ -110,4 +107,5 @@
 
   </div>
 
+  <script src="{% static 'home/kitchen.js' %}"> </script> 
 {% endblock %}

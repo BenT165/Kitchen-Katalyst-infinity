@@ -125,7 +125,7 @@ body{
 
 
 .kitchen-details-content{
-    background-color: #3BA114;
+    background-color: rgb(59, 161, 20);
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -136,8 +136,34 @@ body{
     margin: 2rem 0;
     color: white; 
     padding-top: 5%;
+    overflow-y: scroll;
+    padding: 2rem 0;
 }
 
+
+@media screen and (min-width: 400px) {
+    .kitchen-recipe-search-box{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 8px){
+    /* size windowed for 2 recipes */
+    #kitchen{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    .recipe-item{
+        margin: 0;
+    }
+    .recipe-lists{
+        width: 500px;
+    }
+    
+}
 /*  */
 
 /* .kitchen-result{

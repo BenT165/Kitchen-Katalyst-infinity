@@ -108,3 +108,24 @@ function saveRecipe(me) {
 }
 
 
+// Quotes generator
+// const quotes = [
+//     { quote: "The only real stumbling block is fear of failure. In cooking, you've got to have a what-the-hell attitude.", author: "Julia Child" },
+//     { quote: "Cooking is like love. It should be entered into with abandon or not at all.", author: "Harriet Van Horne" },
+//     { quote: "Life is a combination of magic and pasta.", author: "Federico Fellini" },
+//     { quote: "If you're afraid of butter, use cream.", author: "Julia Child" },
+//     { quote: "Cooking is at once child's play and adult joy. And cooking done with care is an act of love.", author: "Craig Claiborne" }
+//   ];
+  
+  // Function to generate random quote
+//   function generateRandomQuote() {
+//     const randomIndex = Math.floor(Math.random() * quotes.length);
+//     const quoteElement = document.getElementById("quote");
+//     const authorElement = document.getElementById("author");
+  
+//     quoteElement.textContent = quotes[randomIndex].quote;
+//     authorElement.textContent = "- " + quotes[randomIndex].author;
+//   }
+  
+  // Generate initial quote on page load
+//   generateRandomQuote();
